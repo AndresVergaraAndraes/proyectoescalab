@@ -5,39 +5,39 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Pokemones</title>
-        <input type=button onclick="getApi()" value="Llamada api" />
+        <input type=button onclick=" Api.fetchData();" value="Llamada api" />
         
       
        
         
         <form action="">
           <div id="url"> Listado de url</div>
-          <input type=button onclick="getPokemonUrls()" value="Listado de urls" />
+          <input type=button onclick="instancia.listadoUrl()" value="Listado de urls" />
         </form>
       <form action="">
         <div id="pokemon">Listado de Pokemones</div>
-        <input type=button onclick="getPokemonList()" value="Listado de pokemones" />
+        <input type=button onclick="instancia.listadoPokemons()" value="Listado de pokemones" />
       </form>
 <form action="">
   <div id="matchend"><h2>Filtro de pokemones terminados</h2> </div>
-  <input type=button onclick="getFilterPokemonEnd()" value="Filtrar End" />
+  <input type=button onclick="instancia.filterPokemonesEnd(document.getElementById('end').value)" value="Filtrar End" />
         <input type=text  id="end"/>
         
 </form>
         <form>
           <div id="findpokemon"></div>
-          <input type=button onclick="findPokemonByName()" value="Buscar Pokemon" />
+          <input type=button onclick="instancia.findPokemon(document.getElementById('pokemonname').value)" value="Buscar Pokemon" />
           <input type=text  id="pokemonname"/>
           </form>
           <form>
             <div id="findurl"></div>
-            <input type=button onclick="getUrl()" value="Buscar url" />
+            <input type=button onclick="instancia.findUrl(document.getElementById('pokemonurl').value)" value="Buscar url" />
             <input type=text  id="pokemonurl"/>
             </form>
           
         <form >
           <div id="matchstart"></div>
-          <input type=button onclick="getFilterPokemonStart()" value="Filtrar Start" />
+          <input type=button onclick="instancia.filterPokemonesStart(document.getElementById('start').value)" value="Filtrar Start" />
           <input type=text  id="start"/>
         </form>
 

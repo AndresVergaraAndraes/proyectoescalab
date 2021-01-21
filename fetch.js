@@ -120,32 +120,3 @@ this.div_findurl.appendChild(not_found);
 }
 
 const instancia = new PokemonFunctions();
-function getApi(){
-  Api.fetchData();
-  console.log(Api.data)
-}
-
-function getFilterPokemonEnd(){
- let a = document.getElementById('end').value;
-  instancia.filterPokemonesEnd(a)
-}
-function getFilterPokemonStart(){
-  let start = document.getElementById('start').value;
-   instancia.filterPokemonesStart(start)
- }
-function findPokemonByName(){
- let pokemon_name = document.getElementById('pokemonname').value;
-  instancia.findPokemon(pokemon_name)
-}
-
-function getPokemonList(){
-  instancia.listadoPokemons()
-}
-
-function getPokemonUrls(){
-  instancia.listadoUrl()
-}
-function getUrl(){
-  let pokemon_url = document.getElementById('pokemonurl').value;
-  instancia.findUrl(pokemon_url)
-}
