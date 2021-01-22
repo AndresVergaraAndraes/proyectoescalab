@@ -5,51 +5,77 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pokemones</title>
-  
+
 </head>
 <body>
-  <input type=button onclick=" Api.fetchData();" value="Llamada api" />
+
+<h3>Click en "Llamada api" para poder usar los metodos array</h3>
+  <input type=button onclick="Api.timerData()" value="Llamada api" />
+
+ 
+
+  
 
   <form action="">
-    <div id="url"> Listado de url</div>
-    <input type=button onclick="instancia.listadoUrl()" value="Listado de urls" />
-  </form>
-
-  <form action="">
-    <div id="pokemon">Listado de Pokemones</div>
+    <div id="pokemon">Listado de Pokemones con método map()
+    </div>
     <input type=button onclick="instancia.listadoPokemons()" value="Listado de pokemones" />
-  </form>
+    <div id="reduce"> Buscar Pokemon método reduce()</div>
+    <input type=button onclick="instancia.reducePokemon(document.getElementById('findreduce').value)"
+      value="Pokemon reduce" />
+    <input type=text id="findreduce" />
+    
+    <div id="findpokemon">
+      Buscar Pokemon método find()
+    </div>
+    <input type=button onclick="instancia.findPokemon(document.getElementById('pokemonname').value)"
+      value="Buscar Pokemon" />
+    <input type=text id="pokemonname" />
+   
 
-  <form action="">
+    <div id="matchstart">
+  Buscar Pokemon con método filter() y startsWith()
+    </div>
+    <input type=button onclick="instancia.filterPokemonesStart(document.getElementById('start').value)"
+      value="Filtrar Start" />
+    <input type=text id="start" />
+    
+
     <div id="matchend">
-      <h2>Filtro de pokemones terminados</h2>
+      Buscar Pokemon con método filter() y endsWith()
     </div>
     <input type=button onclick="instancia.filterPokemonesEnd(document.getElementById('end').value)"
       value="Filtrar End" />
     <input type=text id="end" />
-  </form>
 
-  <form>
-    <div id="findpokemon"></div>
-    <input type=button onclick="instancia.findPokemon(document.getElementById('pokemonname').value)"
-      value="Buscar Pokemon" />
-    <input type=text id="pokemonname" />
-  </form>
+    <div id="url"> Listado de url con método map()</div>
+    <input type=button onclick="instancia.listadoUrl()" value="Listado de urls" />
 
-  <form>
-    <div id="findurl"></div>
+    <div id="findurl"> Busca url de la lista de url con método find()</div>
     <input type=button onclick="instancia.findUrl(document.getElementById('pokemonurl').value)" value="Buscar url" />
-    <input type=text id="pokemonurl" />
-  </form>
+      <input type=text id="pokemonurl" />
+   
+  
 
-  <form>
-    <div id="matchstart"></div>
-    <input type=button onclick="instancia.filterPokemonesStart(document.getElementById('start').value)"
-      value="Filtrar Start" />
-    <input type=text id="start" />
   </form>
-
-  <script src="fetch.js"></script>
+<div id="parte3">
+  <h2>Buscar Id es independiente de el codigo anterior</h2>
+  <div id="error"></div>
+  <input type="button" onclick="newapi.findId(document.getElementById('idpokemon').value)"value="Buscar Id" />
+    <input type=text id="idpokemon" />
+    <ul>
+      <h5>Pokemon</h5>
+      <li id="pokemon_nombre"></li> 
+      <img id="pokemon_image" src=""alt="">
+      <h6>Habilidades</h6>
+      <li id="abilities1"></li>
+      <li id="abilities2"></li>
+      <h6>Tipo</h6>
+      <li id="type"></li>
+    </ul>
+ 
+</div>
+  <script src="fetch.js">console.log(localStorage('key', id))</script>
 </body>
 
 </html>
