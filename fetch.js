@@ -11,8 +11,9 @@ class Api {
  static timerData = ()=>{
     Api.fetchData().then(setTimeout(() => {
         alert('Llamada api realizada con exito')
-         
-         },1000))
+        let listo = document.querySelector('#listo')
+        listo.textContent = `Ahora puedes usar los metodos`
+         },2000))
 }
   
 }
@@ -26,6 +27,7 @@ class PokemonFunctions {
     this.div_findpokemon = document.querySelector('#findpokemon')
     this.div_findurl = document.querySelector('#findurl')
     this.div_reduce = document.querySelector('#reduce')
+    this.div_localstore = document.querySelector('#localstore')
   
   }
 
@@ -34,8 +36,7 @@ class PokemonFunctions {
   listadoPokemons() {
     const { results } = Api.data
     results.map((names) => {
-
-      const nombre = document.createElement('h5');
+      const nombre = document.createElement('li');
       nombre.innerHTML = names.name
       this.div_pokemon.appendChild(nombre);
     })
@@ -44,7 +45,7 @@ class PokemonFunctions {
   listadoUrl() {
     const { results } = Api.data
     results.map((names) => {
-      let url = document.createElement('h5');
+      let url = document.createElement('li');
       url.innerHTML = names.url
       this.div_url.appendChild(url);
     })
@@ -57,7 +58,7 @@ class PokemonFunctions {
     const result = results.filter(pokemon => pokemon.name.endsWith(pokemonend));
     if (pokemonend.length >=1){
     result.map((match) => {
-      let find = document.createElement('h5');
+      let find = document.createElement('li');
       find.innerHTML = match.name;
       this.div_matchend.appendChild(find);
     })}else{
@@ -72,7 +73,7 @@ class PokemonFunctions {
     const result = results.filter(pokemon => pokemon.name.startsWith(pokemonstart));
     if (pokemonstart.length >=1){
     result.map((match) => {
-      let find = document.createElement('h5');
+      let find = document.createElement('li');
       find.innerHTML = match.name;
       this.div_matchstart.appendChild(find);
     })}else{
@@ -85,7 +86,7 @@ class PokemonFunctions {
 
   findPokemon = (name) => {
     const { results } = Api.data
-    localStorage.setItem(name,name);
+    this.div_localstore.textContent= localStorage.setItem(name,name);
     const found = results.find(pokemon => pokemon.name === name)
     if (found) {
       const { name } = found;
@@ -117,11 +118,11 @@ if (found[pokemon] != undefined) {
     console.log(found)
     if (found) {
       const { url } = found;
-      let find = document.createElement('h3');
+      let find = document.createElement('li');
       find.innerHTML = `El url ${url} sí esta en la lista`;;
       this.div_findurl.appendChild(find);
     } else {
-      let not_found = document.createElement('h3');
+      let not_found = document.createElement('li');
       not_found.innerHTML = `El url ${url} ingresado no existe en esta lista`;
       this.div_findurl.appendChild(not_found);
     }
@@ -147,7 +148,7 @@ fetchDataId = async (id) =>{
   return data
 }
 findId = async (id)=>{
-  if (id>150 || id<=0 ){
+  if (id>151 || id<=0 ){
 this.error.textContent = `Ingresa un numero entre 1 y 150`
  throw Error('Ingresa un numero entre 1 y 150')
   }else{
@@ -162,5 +163,8 @@ this.error.textContent = `Ingresa un numero entre 1 y 150`
   }
 
 }
+
+    
+    
 }
 const newapi = new NewApi();
